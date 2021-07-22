@@ -18,7 +18,7 @@ class CustomerRepositoryTest {
 
     @Test
     void search1Test() {
-        List<CustomerMinProjection> list = customerRepository.search1("RS");
+        List<CustomerMinProjection> list = customerRepository.search1("rs");
         List<CustomerMinDTO> result = list.stream().map(CustomerMinDTO::new)
                 .collect(Collectors.toList());
 
