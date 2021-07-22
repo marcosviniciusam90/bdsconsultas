@@ -17,8 +17,8 @@ class CustomerRepositoryTest {
     private CustomerRepository customerRepository;
 
     @Test
-    void search1Test() {
-        List<CustomerMinProjection> list = customerRepository.search1("rs");
+    void searchNative() {
+        List<CustomerMinProjection> list = customerRepository.searchNative("rs");
         List<CustomerMinDTO> result = list.stream().map(CustomerMinDTO::new)
                 .collect(Collectors.toList());
 
@@ -29,4 +29,14 @@ class CustomerRepositoryTest {
         Assertions.assertEquals(3, result.size());
     }
 
+    @Test
+    void searchJPQL() {
+        List<CustomerMinDTO> result = customerRepository.searchJPQL("rs");
+
+        for (CustomerMinDTO obj : result) {
+            System.out.println(obj);
+        }
+
+        Assertions.assertEquals(3, result.size());
+    }
 }
