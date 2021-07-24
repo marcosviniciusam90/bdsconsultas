@@ -12,15 +12,16 @@ CREATE TABLE departamentos (
   cpf_gerente VARCHAR(15) REFERENCES empregados (cpf)
 );
 
-CREATE TABLE trabalha (
-  cpf_emp VARCHAR(15) REFERENCES empregados(cpf),
-  pnumero numeric
-);
-
 CREATE TABLE projetos (
   pnumero NUMERIC PRIMARY KEY,
   pnome VARCHAR(45),
   dnumero NUMERIC REFERENCES departamentos (dnumero)
+);
+
+-- tabela associativa entre empregados x projetos
+CREATE TABLE trabalha (
+  cpf_emp VARCHAR(15) REFERENCES empregados(cpf),
+  pnumero numeric REFERENCES projetos(pnumero)
 );
 
 INSERT INTO empregados(cpf, enome, salary, cpf_supervisor, dnumero)
@@ -37,13 +38,14 @@ VALUES
       (1010, 'Pesquisa', '049382234322'),
       (1020, 'Ensino', '2434332222');
 
+INSERT INTO projetos (pnumero, pnome, dnumero)
+VALUES
+  (2010, 'Alpha', 1010),
+  (2020, 'Beta', 1020);
+
+-- tabela associativa entre empregados x projetos
 INSERT INTO trabalha (cpf_emp, pnumero)
 VALUES 
   ('049382234322', 2010),
   ('586733922290', 2020),
   ('049382234322', 2020);
-
-INSERT INTO projetos (pnumero, pnome, dnumero)
-VALUES 
-  (2010, 'Alpha', 1010),
-  (2020, 'Beta', 1020);
