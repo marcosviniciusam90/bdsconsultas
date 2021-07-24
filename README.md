@@ -3,7 +3,7 @@
 
 https://www.urionlinejudge.com.br
 
-## Problemas
+## Desafios resolvidos
 - [URI 2602](https://www.urionlinejudge.com.br/judge/pt/problems/view/2602)
 - [URI 2609](https://www.urionlinejudge.com.br/judge/pt/problems/view/2609)
 - [URI 2611](https://www.urionlinejudge.com.br/judge/pt/problems/view/2611)
